@@ -24,9 +24,10 @@ if st.checkbox('Show dataframe'):
     data
     
 xgb_model = xgb.XGBRegressor()
-# xgb_model.load_model("model_sf.json")
+xgb_model.load_model("model_sf.json")
+# xgb_model = pickle.load(open("finalized_model.pkl", "rb"))
 
-xgb_model = pickle.load(open("finalized_model.pkl", "rb"))
+
 
 st.subheader("Please select relevant features of your house:")
 
