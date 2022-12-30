@@ -18,3 +18,6 @@ import numpy as np
 st.header("Fish Weight Prediction App")
 st.text_input("Enter your Name: ", key="name")
 data = pd.read_csv("https://raw.githubusercontent.com/AimAndIgnite/datasets/main/kc_house_data.csv")
+
+if st.checkbox('Show dataframe'):
+    data
