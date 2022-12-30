@@ -15,6 +15,7 @@ import pandas as pd
 import xgboost as xgb
 import numpy as np
 import pickle
+from sklearn.model_selection import train_test_split 
 
 st.header("House Price Prediction App (King County)")
 # st.text_input("Enter your Name: ", key="name")
