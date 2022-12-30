@@ -14,6 +14,7 @@ import pandas as pd
 # from sklearn.preprocessing import  LabelEncoder
 import xgboost as xgb
 import numpy as np
+import pickle
 
 st.header("House Price Prediction App (King County)")
 # st.text_input("Enter your Name: ", key="name")
