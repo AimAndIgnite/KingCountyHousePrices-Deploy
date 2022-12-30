@@ -23,7 +23,9 @@ if st.checkbox('Show dataframe'):
     data
     
 xgb_model = xgb.XGBRegressor()
-xgb_model.load_model("model_sf.json")
+# xgb_model.load_model("model_sf.json")
+
+loaded_model = pickle.load(open("finalized_model", 'rb'))
 
 st.subheader("Please select relevant features of your house:")
 
@@ -33,6 +35,6 @@ input_sqft_living = st.slider('Total living space (in square foot)', 0, max(data
 input_sqft_above = st.slider('Total space (in square foot)', 0, max(data["sqft_above"]), 1)
 
 if st.button('Make Prediction'):
-    prediction = xgb_model.predict(input_bathrooms, input_bedrooms, input_sqft_living, input_sqft_above)
+    prediction = loaded_model.predict(input_bathrooms, input_bedrooms, input_sqft_living, input_sqft_above)
     print("final pred", np.squeeze(prediction, -1))
     st.write(f"Predicted clicks: {np.squeeze(prediction, -1)} clicks")
