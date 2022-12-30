@@ -28,6 +28,9 @@ xgb_model = xgb.XGBRegressor()
 # xgb_model.load_model("model_sf.json")
 # xgb_model = pickle.load(open("finalized_model.pkl", "rb"))
 
+X = data[["bathrooms", "bedrooms", "sqft_living", "sqft_above"]]
+y = data["price"]
+
 X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, shuffle=False, random_state=1)
 
 xgb_model.fit(X_train, y_train)
