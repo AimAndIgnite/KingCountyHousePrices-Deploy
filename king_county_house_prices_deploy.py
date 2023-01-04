@@ -45,9 +45,12 @@ st.subheader("Please select relevant features of your house:")
 # input_sqft_living = st.slider('Total living space (in square foot)', 0.0, max(data["sqft_living"]), 1.0)
 # input_sqft_above = st.slider('Total space (in square foot)', 0.0, max(data["sqft_above"]), 1.0)
 
-bathrooms = st.number_input("Number of bathroom", min_value=1, max_value=10, step=1)
+input_bathrooms = st.number_input("Input number of bathroom(s)", min_value=1, max_value=10, step=1)
+input_bedrooms = st.number_input("Input number of bedroom(s)", min_value=1, max_value=10, step=1)
+input_sqft_living = st.number_input("Input total area of living space (square feet)", min_value=1, max_value=10, step=1)
+input_sqft_living = st.number_input("Input total area of property (square feet)", min_value=1, max_value=10, step=1)
 
 if st.button('Make Prediction'):
     prediction = xgb_model.predict(input_bathrooms, input_bedrooms, input_sqft_living, input_sqft_above)
     print("final pred", np.squeeze(prediction, -1))
-    st.write(f"Predicted clicks: {np.squeeze(prediction, -1)} clicks")
+    st.write(f"Predicted price: ${np.squeeze(prediction, -1)}")
