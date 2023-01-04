@@ -24,7 +24,7 @@ data = pd.read_csv("https://raw.githubusercontent.com/AimAndIgnite/datasets/main
 if st.checkbox('Show dataframe'):
     data
     
-xgb_model = xgb.XGBRegressor()
+# xgb_model = xgb.XGBRegressor()
 # xgb_model.load_model("model_sf.json")
 # xgb_model = pickle.load(open("finalized_model.pkl", "rb"))
 
@@ -33,8 +33,11 @@ y = data["price"]
 
 X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, shuffle=False, random_state=1)
 
-xgb_model.fit(X_train, y_train)
-predictions = xgb_model.predict(X_test)
+@st.cache
+if st.button("Train Model"):
+    xgb_model = xgb.XGBRegressor()
+    xgb_model.fit(X_train, y_train)
+    predictions = xgb_model.predict(X_test)
 
 st.subheader("Please select relevant features of your house:")
 
