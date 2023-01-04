@@ -35,7 +35,7 @@ X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_siz
 
 @st.cache
 def create_model():
-    xgb_model = xgb.XGBRegressor()
+    untrained_xgb_model = xgb.XGBRegressor()
     return untrained_xgb_model
 
 if st.button("Train Model"):
