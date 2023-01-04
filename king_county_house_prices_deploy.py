@@ -33,7 +33,7 @@ y = data["price"]
 
 X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, shuffle=False, random_state=1)
 
-@st.cache
+# @st.cache
 def train_model():
     xgb_model = xgb.XGBRegressor()
     xgb_model.fit(X_train, y_train)
