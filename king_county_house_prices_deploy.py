@@ -48,7 +48,7 @@ st.subheader("Please select relevant features of your house:")
 input_bathrooms = st.number_input("Input number of bathroom(s)", min_value=1, max_value=100, step=1)
 input_bedrooms = st.number_input("Input number of bedroom(s)", min_value=1, max_value=100, step=1)
 input_sqft_living = st.number_input("Input total area of living space (square feet)", min_value=1, max_value=13000, step=1000)
-input_sqft_living = st.number_input("Input total area of property (square feet)", min_value=1, max_value=13000, step=1000)
+input_sqft_above = st.number_input("Input total area of property (square feet)", min_value=1, max_value=13000, step=1000)
 
 if st.button('Make Prediction'):
     prediction = xgb_model.predict(input_bathrooms, input_bedrooms, input_sqft_living, input_sqft_above)
