@@ -24,7 +24,7 @@ data = pd.read_csv("https://raw.githubusercontent.com/AimAndIgnite/datasets/main
 if st.checkbox('Show dataframe'):
     data
     
-# xgb_model = xgb.XGBRegressor()
+xgb_model = xgb.XGBRegressor()
 # xgb_model.load_model("model_sf.json")
 # xgb_model = pickle.load(open("finalized_model.pkl", "rb"))
 
