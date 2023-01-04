@@ -34,15 +34,16 @@ y = data["price"]
 X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, shuffle=False, random_state=1)
 
 @st.cache
-def create_model():
-    untrained_xgb_model = xgb.XGBRegressor()
-    return untrained_xgb_model
-
-if st.button("Train Model"):
-    xgb_model = create_model()
+def train_model():
+    xgb_model = xgb.XGBRegressor()
     xgb_model.fit(X_train, y_train)
     predictions = xgb_model.predict(X_test)
+    return xgb_model
 
+if st.button("Train Model"):
+    train_model()
+    st.write("Model trained")
+    
 st.subheader("Please select relevant features of your house:")
 
 # input_bathrooms = st.slider('Number of bathrooms', 0.0, max(data["bathrooms"]), 1.0)
